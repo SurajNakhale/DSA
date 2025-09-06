@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 // Second Largest Element
 
 // Given an array of integers nums, return the second-largest element
@@ -34,3 +37,15 @@ public:
       return (slargest == INT_MIN) ? -1 : slargest;
     }
 };
+
+
+int main() {
+    Solution solution;
+    
+    vector<int> nums1 = {8, 8, 7, 6, 5};
+    cout << "Test Case 1: ";
+    cout << solution.secondLargestElement(nums1) << endl; // Expected output: 7
+    
+    
+    return 0;
+}
