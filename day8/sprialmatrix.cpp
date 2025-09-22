@@ -75,6 +75,52 @@ vector<int> printSpiral(vector<vector<int>> &matrix){
 
 
 }
+// class Solution {
+// public:
+//     vector<int> spiralOrder(vector<vector<int>>& matrix) {
+//         vector<int> ans;
+//         int n = matrix.size();  // number of rows
+//         int m = matrix[0].size(); // number of columns
+//         int left = 0;
+//         int top = 0;
+//         int right = m - 1;  // should be m - 1
+//         int bottom = n - 1; // should be n - 1
+
+//         while (top <= bottom && left <= right) {
+//             // Traverse from left to right along the top row
+//             for (int i = left; i <= right; i++) {
+//                 ans.push_back(matrix[top][i]);
+//             }
+//             top++;
+
+//             // Traverse from top to bottom along the rightmost column
+//             for (int i = top; i <= bottom; i++) {
+//                 ans.push_back(matrix[i][right]);
+//             }
+//             right--;
+
+//             // Ensure that top <= bottom before traversing the bottom row
+//             if (top <= bottom) {
+//                 // Traverse from right to left along the bottom row
+//                 for (int i = right; i >= left; i--) {
+//                     ans.push_back(matrix[bottom][i]);
+//                 }
+//                 bottom--;
+//             }
+
+//             // Ensure that left <= right before traversing the leftmost column
+//             if (left <= right) {
+//                 // Traverse from bottom to top along the leftmost column
+//                 for (int i = bottom; i >= top; i--) {
+//                     ans.push_back(matrix[i][left]);
+//                 }
+//                 left++;
+//             }
+//         }
+//         return ans;
+//     }
+// };
+
 int main() {
   //Matrix initialization.
   vector<vector<int>> matrix   {{1, 2, 3, 4},
