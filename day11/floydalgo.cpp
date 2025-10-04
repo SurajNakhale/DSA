@@ -73,7 +73,7 @@ int duplicatenum(vector<int> &arr){
     fast = arr[0];
     while(slow != fast){
         slow = arr[slow];
-        fast = arr[arr[fast]];
+        fast = arr[fast];
     }
     return fast;
 }
