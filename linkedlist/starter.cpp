@@ -117,15 +117,97 @@ Node* deleteByValue(Node* head, int val ){
 
 }
 
+Node* insertFirst(Node* head, int val){
+    // Node* newnode = new Node(val, head);
+    return new Node(val, head);
+}
+
+Node* insertTail(Node* head, int val){
+    if(head == NULL) return new Node(val);
+    Node* temp = head;
+
+    while(temp->next != NULL){
+        temp = temp->next;
+    }
+    Node* newnode = new Node(val);
+    temp->next = newnode;
+    return head;
+}
+
+Node* insertPosition(Node* head, int val, int k){
+    if(head == NULL){
+        if(k == 1){
+            return new Node(val);
+        }  
+        else{
+            return head;
+        }
+    } 
+     
+    if(k == 1) return new Node(val, head);
+
+    int cnt =0;
+    Node* temp = head;
+    while(temp != NULL){
+        cnt++;
+        if(cnt == (k-1)){
+            Node* newnode = new Node(val, temp->next);
+            temp->next = newnode;
+            break;
+        }
+        temp = temp->next;
+    }
+
+    return head;
+
+}
+
+Node* insertEleBeforeValue(Node* head, int ele, int value){
+     if(head == NULL) return NULL;
+
+     if(head->data == value) return new Node(ele, head);
+
+    Node* temp = head;
+    while(temp->next != NULL){
+        if(temp->next->data == value){
+            Node* newnode = new Node(ele, temp->next);
+            temp->next = newnode;
+            break;
+        }
+
+        temp = temp->next;
+    }
+    return head;
+
+}
 
 int main(){
 
     vector<int> arr = {2, 5, 6, 3};
     Node* head = convertarrtoll(arr);
-    
+    head = insertEleBeforeValue(head, 100, 6);
+    Node* temp = head;
+    while(temp ){
+        cout<< temp->data << " ";
+        temp = temp->next;
+    }
 
 
-    
+
+    // head = insertTail(head, 100);
+    // Node* temp = head;
+    // while(temp){
+    //     cout<<temp->data << " ";
+    //     temp = temp->next;
+    // }
+    // head = insertFirst(head, 100);
+    // Node* temp = head;
+    // while(temp){
+    //     cout<<temp->data << " ";
+    //     temp = temp->next;
+    // }
+
+
     // head = deleteByValue(head, 2);
     // Node* temp = head;
     // while(temp){
