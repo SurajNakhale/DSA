@@ -54,7 +54,7 @@ Node* convertArrtoLL(vector<int> arr){
 Node* convertArrtoDLL(vector<int> &arr){
     Node* head = new Node(arr[0]);
     Node* prev = head;
-
+    
     for(int i=1; i<arr.size(); i++ ){
         Node* temp = new Node(arr[i], nullptr, prev);
         prev->next = temp;
@@ -63,6 +63,7 @@ Node* convertArrtoDLL(vector<int> &arr){
     return head;
 }
 
+//{2, 5, 6, 3}
 Node* reverseDLL(Node* head){
     Node* last = NULL;
     Node* current = head;
@@ -93,7 +94,7 @@ Node* reverseLL(Node* head){
 int main(){
     vector<int> arr = {2, 5, 6, 3};
     Node* head = convertArrtoDLL(arr);
-    head = reverseDLL(head);
+    head = reverseLL(head);
     Node* temp = head;
     while(temp ){
         cout<< temp->data << " ";
